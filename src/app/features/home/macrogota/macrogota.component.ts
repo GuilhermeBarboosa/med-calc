@@ -40,7 +40,7 @@ export class MacrogotaComponent {
 
       this.dialog.open(DialogGotasComponent, {
         width: '800px',
-        data: { volume: volume, tipo: tipoTempo, tempo: tempo, total: total },
+        data: { volume: volume, tipo: tipoTempo, tempo: tempo, total: total.toFixed(2) },
       });
     } else {
       this.notifier.showInfo('Preencha todos os campos');

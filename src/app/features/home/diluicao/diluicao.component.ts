@@ -57,7 +57,7 @@ export class DiluicaoComponent {
           concentracao: concentracao,
           volume: volume,
           totalMgFrasco: totalMgFrasco,
-          calculo: proporcao === '1' ? calculo : calculoPor2,
+          calculo: proporcao === '1' ? calculo.toFixed(2) : calculoPor2.toFixed(2),
           proporcao: proporcaoRefactor,
         },
       });
