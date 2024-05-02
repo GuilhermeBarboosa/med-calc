@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ButtonPrimaryComponent } from '../components/button-primary/button-primary.component';
 import { ButtonSecundaryComponent } from '../components/button-secundary/button-secundary.component';
+import { DialogDiluicaoComponent } from '../components/dialog-diluicao/dialog-diluicao.component';
 import { DialogGotasComponent } from '../components/dialog-gotas/dialog-gotas.component';
 import { DialogComponent } from '../components/dialog/dialog.component';
 import { FooterComponent } from '../components/footer/footer.component';
@@ -26,6 +27,7 @@ import { MaterialModule } from './material.module';
     FooterComponent,
     ButtonPrimaryComponent,
     ButtonSecundaryComponent,
+    DialogDiluicaoComponent,
     DialogGotasComponent,
     SpinnerComponent,
     ReactiveFormsModule,
@@ -40,7 +42,8 @@ import { MaterialModule } from './material.module';
     FooterComponent,
     ButtonPrimaryComponent,
     ButtonSecundaryComponent,
-    DialogGotasComponent
+    DialogGotasComponent,
+    DialogDiluicaoComponent
   ],
   providers: [],
 })

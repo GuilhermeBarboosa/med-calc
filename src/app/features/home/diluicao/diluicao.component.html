@@ -1,1 +1,76 @@
-<p>diluicao works!</p>
+<div>
+  <div class="flex justify-center m-5">
+    <h1 class="text-xl font-semibold">Diluição</h1>
+  </div>
+
+  <div class="flex justify-center">
+    <div>
+      <form [formGroup]="formulario" *ngIf="formulario">
+        <div class="m-2">
+          <label for="">Prescrição: (mg)</label>
+          <input
+            class="default-input"
+            formControlName="prescricao"
+            type="number"
+            matInput
+          />
+        </div>
+
+        <div class="m-2">
+          <label for="">Concentração: (mg)</label>
+          <input
+            class="default-input"
+            formControlName="concentracao"
+            type="number"
+            matInput
+          />
+        </div>
+
+
+        <div class="m-2">
+          <label for="">Proporção</label>
+          <div class="flex items-center mb-2">
+            <input
+              id="1"
+              type="radio"
+              formControlName="proporcao"
+              value="1"
+              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2"
+            />
+            <label for="1" class="ms-2 text-sm font-medium text-gray-900"
+              >{{this.formulario.get('concentracao')?.value}}mg/1ml</label
+            >
+          </div>
+          <div class="flex items-center">
+            <input
+              id="2"
+              type="radio"
+              formControlName="proporcao"
+              value="2"
+              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2"
+            />
+            <label for="2" class="ms-2 text-sm font-medium text-gray-900"
+              >{{this.formulario.get('concentracao')?.value}}mg/2ml</label
+            >
+          </div>
+        </div>
+
+
+        <div class="m-2">
+          <label for="">Volume total (mL):</label>
+          <input
+            class="default-input"
+            formControlName="volume"
+            type="number"
+            matInput
+          />
+        </div>
+
+        <app-button-primary
+          (click)="calcular()"
+          [value]="'Calcular'"
+        ></app-button-primary>
+      </form>
+    </div>
+  </div>
+</div>
