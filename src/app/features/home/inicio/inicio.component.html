@@ -1,0 +1,38 @@
+<div>
+  <div class="flex justify-center m-5">
+    <h1 class="text-xl font-semibold">Inicio</h1>
+  </div>
+
+  <div class="flex justify-center">
+    <div>
+      <div class="m-2">
+        <app-button-secundary
+          (click)="navigateTo('macrogota')"
+          class="button-secundary"
+          [value]="'Macrogotas'"
+        ></app-button-secundary>
+      </div>
+      <div class="m-2">
+        <app-button-secundary
+          (click)="navigateTo('microgota')"
+          class="button-secundary"
+          [value]="'Microgotas'"
+        ></app-button-secundary>
+      </div>
+      <div class="m-2">
+        <app-button-secundary
+          (click)="navigateTo('diluicao')"
+          class="button-secundary"
+          [value]="'Diluição'"
+        ></app-button-secundary>
+      </div>
+      <div class="m-2">
+        <app-button-secundary
+          (click)="navigateTo('sobre')"
+          class="button-secundary"
+          [value]="'Sobre nós'"
+        ></app-button-secundary>
+      </div>
+    </div>
+  </div>
+</div>

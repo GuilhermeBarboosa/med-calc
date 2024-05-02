@@ -11,7 +11,7 @@ export class InicioComponent implements OnInit {
 
   ngOnInit() {}
 
-  getMinhasInscricoes() {
-    this.router.navigateByUrl(`/minha-inscricao`);
+  navigateTo(url: String) {
+    this.router.navigateByUrl(`/${url}`);
   }
 }
