@@ -6,6 +6,7 @@
 
 * {
   font-family: "Open Sans", sans-serif !important;
+  --tw-ring-color: rgb(0 0 0 / 0) !important;
 }
 
 html,
@@ -79,7 +80,8 @@ body {
 }
 
 .default-input:focus {
-  border:  #a4dad2 !important;
+  outline: 1.5px solid #a4dad2 !important;
+  margin: 0%  !important;
 }
 
 
