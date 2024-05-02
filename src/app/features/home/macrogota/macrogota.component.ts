@@ -24,9 +24,9 @@ export class MacrogotaComponent {
 
   async createTable() {
     this.formulario = this.formBuilder.group({
-      volume: ['500', [Validators.required]],
-      tipoTempo: ['horas', [Validators.required]],
-      tempo: ['6', [Validators.required]],
+      volume: ['', [Validators.required]],
+      tipoTempo: ['', [Validators.required]],
+      tempo: ['', [Validators.required]],
     });
   }
 
@@ -38,7 +38,7 @@ export class MacrogotaComponent {
 
       let total = this.calcularMacrogota(volume, tipoTempo, tempo);
 
-      let dialogRef = this.dialog.open(DialogGotasComponent, {
+      this.dialog.open(DialogGotasComponent, {
         width: '800px',
         data: { volume: volume, tipo: tipoTempo, tempo: tempo, total: total },
       });

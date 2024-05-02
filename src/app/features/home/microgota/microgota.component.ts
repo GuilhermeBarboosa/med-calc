@@ -24,9 +24,9 @@ export class MicrogotaComponent implements OnInit {
 
   async createTable() {
     this.formulario = this.formBuilder.group({
-      volume: ['500', [Validators.required]],
-      tipoTempo: ['horas', [Validators.required]],
-      tempo: ['6', [Validators.required]],
+      volume: ['', [Validators.required]],
+      tipoTempo: ['', [Validators.required]],
+      tempo: ['', [Validators.required]],
     });
   }
 
@@ -36,9 +36,9 @@ export class MicrogotaComponent implements OnInit {
       const tipoTempo = this.formulario.get('tipoTempo')?.value;
       const tempo = this.formulario.get('tempo')?.value;
 
-      let total = this.calcularMacrogota(volume, tipoTempo, tempo);
+      let total = this.calcularMicrogota(volume, tipoTempo, tempo);
 
-      let dialogRef = this.dialog.open(DialogGotasComponent, {
+     this.dialog.open(DialogGotasComponent, {
         width: '800px',
         data: { volume: volume, tipo: tipoTempo, tempo: tempo, total: total },
       });
@@ -46,11 +46,11 @@ export class MicrogotaComponent implements OnInit {
       this.notifier.showInfo('Preencha todos os campos');
     }
   }
-  calcularMacrogota(volume: any, tipoTempo: any, tempo: any) {
+  calcularMicrogota(volume: any, tipoTempo: any, tempo: any) {
     if (tipoTempo === 'horas') {
       return Math.ceil(volume / tempo);
     } else {
-      return Math.ceil(volume * 20 / tempo) * 3;
+      return Math.ceil((volume * 20) / tempo) * 3;
     }
   }
 }

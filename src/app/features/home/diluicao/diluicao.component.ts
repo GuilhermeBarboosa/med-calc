@@ -8,7 +8,7 @@ import { NotifierService } from 'src/app/services/notifier.service';
 @Component({
   selector: 'app-diluicao',
   templateUrl: './diluicao.component.html',
-  styleUrls: ['./diluicao.component.css']
+  styleUrls: ['./diluicao.component.css'],
 })
 export class DiluicaoComponent {
   formulario!: FormGroup;
@@ -25,10 +25,10 @@ export class DiluicaoComponent {
 
   async createTable() {
     this.formulario = this.formBuilder.group({
-      prescricao: ['500', [Validators.required]],
-      concentracao: ['80', [Validators.required]],
-      proporcao: ['1', [Validators.required]],
-      volume: ['10', [Validators.required]],
+      prescricao: ['', [Validators.required]],
+      concentracao: ['', [Validators.required]],
+      proporcao: ['', [Validators.required]],
+      volume: ['', [Validators.required]],
     });
   }
 
@@ -40,8 +40,8 @@ export class DiluicaoComponent {
       const volume = this.formulario.get('volume')?.value;
 
       const totalMgFrasco = volume * concentracao;
-      const calculo = volume * prescricao / totalMgFrasco;
-      const calculoPor2 = volume * prescricao / (volume * (concentracao / 2));
+      const calculo = (volume * prescricao) / totalMgFrasco;
+      const calculoPor2 = (volume * prescricao) / (volume * (concentracao / 2));
 
       let proporcaoRefactor = '';
       if (proporcao === '1') {
@@ -50,14 +50,16 @@ export class DiluicaoComponent {
         proporcaoRefactor = '2ml';
       }
 
-      let dialogRef = this.dialog.open(DialogDiluicaoComponent, {
+      this.dialog.open(DialogDiluicaoComponent, {
         width: '800px',
-        data: { prescricao: prescricao,
+        data: {
+          prescricao: prescricao,
           concentracao: concentracao,
           volume: volume,
           totalMgFrasco: totalMgFrasco,
           calculo: proporcao === '1' ? calculo : calculoPor2,
-          proporcao: proporcaoRefactor },
+          proporcao: proporcaoRefactor,
+        },
       });
     } else {
       this.notifier.showInfo('Preencha todos os campos');
