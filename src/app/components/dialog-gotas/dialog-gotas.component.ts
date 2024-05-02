@@ -9,8 +9,7 @@ import { UtilsService } from 'src/app/services/utils.service';
 })
 export class DialogGotasComponent {
   volume = '';
-  tipo = '';
-  tempo = '';
+  horasFormatada = '';
   total = '';
 
   constructor(
@@ -19,12 +18,7 @@ export class DialogGotasComponent {
     private utilsService: UtilsService
   ) {
     this.volume = data.volume;
-    if (this.tipo === 'horas') {
-      this.tempo = data.tempo + ' horas';
-    } else {
-      this.tempo = data.tempo + ' minutos';
-    }
-    this.tipo = this.utilsService.formatterString(data.tipo);
+    this.horasFormatada = data.horasFormatada;
     this.total = data.total;
   }
   ngOnInit(): void {}

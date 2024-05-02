@@ -1,9 +1,13 @@
 <h1 mat-dialog-title>Prescrição de diluição</h1>
 <div mat-dialog-content class="center">
-  <p>
-    Em um medicamento com volume de <span class="font-semibold">{{ volume }} ml</span> e concentração de
-    <span class="font-semibold">{{ concentracao }}mg/{{ proporcao }}</span>, para corresponder a
-    prescrição de <span class="font-semibold">{{ prescricao }} mg</span>, deve-se administrar
-    <span class="font-semibold"> {{ this.calculo }} ml</span>!
+  <ul class="max-w-md space-y-1 list-disc list-inside mb-2">
+    <li>Volume: {{ this.volume }} ml</li>
+    <li>Diluente: {{ this.diluente }}</li>
+    <li>Prescrição: {{ this.prescricao }}</li>
+  </ul>
+
+  <p class="flex justify-center">
+    Utilizar <span class="font-bold"> {{ this.totalCalc }} ml </span> para
+    solução final!
   </p>
 </div>

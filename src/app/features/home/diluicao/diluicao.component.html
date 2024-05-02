@@ -7,56 +7,6 @@
     <div>
       <form [formGroup]="formulario" *ngIf="formulario">
         <div class="m-2">
-          <label for="">Prescrição: (mg)</label>
-          <input
-            class="default-input"
-            formControlName="prescricao"
-            type="number"
-            matInput
-          />
-        </div>
-
-        <div class="m-2">
-          <label for="">Concentração: (mg)</label>
-          <input
-            class="default-input"
-            formControlName="concentracao"
-            type="number"
-            matInput
-          />
-        </div>
-
-
-        <div class="m-2">
-          <label for="">Proporção</label>
-          <div class="flex items-center mb-2">
-            <input
-              id="1"
-              type="radio"
-              formControlName="proporcao"
-              value="1"
-              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2"
-            />
-            <label for="1" class="ms-2 text-sm font-medium text-gray-900"
-              >{{this.formulario.get('concentracao')?.value}}mg/1ml</label
-            >
-          </div>
-          <div class="flex items-center">
-            <input
-              id="2"
-              type="radio"
-              formControlName="proporcao"
-              value="2"
-              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2"
-            />
-            <label for="2" class="ms-2 text-sm font-medium text-gray-900"
-              >{{this.formulario.get('concentracao')?.value}}mg/2ml</label
-            >
-          </div>
-        </div>
-
-
-        <div class="m-2">
           <label for="">Volume total (ml):</label>
           <input
             class="default-input"
@@ -64,6 +14,44 @@
             type="number"
             matInput
           />
+          <div
+            class="mensagem__erro"
+            *ngIf="formulario.get('volume')?.errors?.['required'] && formulario.get('volume')?.touched"
+          >
+            Volume é obrigatório
+          </div>
+        </div>
+
+        <div class="m-2">
+          <label for="">Prescrição: (mg)</label>
+          <input
+            class="default-input"
+            formControlName="prescricao"
+            type="number"
+            matInput
+          />
+          <div
+            class="mensagem__erro"
+            *ngIf="formulario.get('prescricao')?.errors?.['required'] && formulario.get('prescricao')?.touched"
+          >
+            Prescrição é obrigatório
+          </div>
+        </div>
+
+        <div class="m-2">
+          <label for="">Diluente: (ml)</label>
+          <input
+            class="default-input"
+            formControlName="diluente"
+            type="number"
+            matInput
+          />
+          <div
+            class="mensagem__erro"
+            *ngIf="formulario.get('diluente')?.errors?.['required'] && formulario.get('diluente')?.touched"
+          >
+            Diluente é obrigatório
+          </div>
         </div>
 
         <app-button-primary

@@ -8,24 +8,20 @@ import { UtilsService } from 'src/app/services/utils.service';
   styleUrls: ['./dialog-diluicao.component.css'],
 })
 export class DialogDiluicaoComponent {
-  concentracao: any;
-  volume: any;
-  totalMgFrasco: any;
-  calculo: any;
-  proporcao: any;
-  prescricao: any;
+  prescricao = ''
+  totalCalc = ''
+  volume = ''
+  diluente = '';
 
   constructor(
     public dialogRef: MatDialogRef<DialogDiluicaoComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private utilsService: UtilsService
   ) {
-    this.concentracao = data.concentracao;
+    this.prescricao = data.prescicao;
+    this.totalCalc = data.totalCalc;
     this.volume = data.volume;
-    this.totalMgFrasco = data.totalMgFrasco;
-    this.prescricao = data.prescricao;
-    this.calculo = data.calculo;
-    this.proporcao = data.proporcao;
+    this.diluente = data.diluente;
   }
   ngOnInit(): void {}
 

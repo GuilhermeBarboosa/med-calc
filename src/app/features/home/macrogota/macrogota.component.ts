@@ -25,32 +25,37 @@ export class MacrogotaComponent {
   async createTable() {
     this.formulario = this.formBuilder.group({
       volume: ['', [Validators.required]],
-      tipoTempo: ['', [Validators.required]],
-      tempo: ['', [Validators.required]],
+      hora: ['', [Validators.required]],
+      minuto: ['', [Validators.required]],
     });
   }
 
   calcular() {
     if (this.formulario.valid) {
       const volume = this.formulario.get('volume')?.value;
-      const tipoTempo = this.formulario.get('tipoTempo')?.value;
-      const tempo = this.formulario.get('tempo')?.value;
+      const hora = this.formulario.get('hora')?.value;
+      const minuto = this.formulario.get('minuto')?.value;
+      let total = 0;
+      let horasFormatada = '';
 
-      let total = this.calcularMacrogota(volume, tipoTempo, tempo);
+      if (hora != 0) {
+        let totalMinuto = hora * 60 + minuto;
+        total = this.calcularMacrogota(volume, totalMinuto);
+        horasFormatada = String(hora) + ':' + String(minuto);
+      } else {
+        total = this.calcularMacrogota(volume, minuto);
+        horasFormatada = '00:' + String(minuto);
+      }
 
       this.dialog.open(DialogGotasComponent, {
         width: '800px',
-        data: { volume: volume, tipo: tipoTempo, tempo: tempo, total: total.toFixed(2) },
+        data: { volume: volume, total: total.toFixed(2), horasFormatada: horasFormatada },
       });
     } else {
       this.notifier.showInfo('Preencha todos os campos');
     }
   }
-  calcularMacrogota(volume: any, tipoTempo: any, tempo: any) {
-    if (tipoTempo === 'horas') {
-      return Math.ceil(volume / (tempo * 3));
-    } else {
-      return Math.ceil((volume * 20) / tempo);
-    }
+  calcularMacrogota(volume: any, totalMinuto: any) {
+    return  (volume * 20) / totalMinuto;
   }
 }

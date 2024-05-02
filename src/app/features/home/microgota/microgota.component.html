@@ -14,45 +14,44 @@
             type="number"
             matInput
           />
-        </div>
-
-
-        <div class="m-2">
-          <div class="flex items-center mb-2">
-            <input
-              id="horas"
-              type="radio"
-              formControlName="tipoTempo"
-              value="horas"
-              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2"
-            />
-            <label for="horas" class="ms-2 text-sm font-medium text-gray-900"
-              >Horas</label
-            >
-          </div>
-          <div class="flex items-center">
-            <input
-              id="minutos"
-              type="radio"
-              formControlName="tipoTempo"
-              value="minutos"
-              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2"
-            />
-            <label for="minutos" class="ms-2 text-sm font-medium text-gray-900"
-              >Minutos</label
-            >
+          <div
+            class="mensagem__erro"
+            *ngIf="formulario.get('volume')?.errors?.['required'] && formulario.get('volume')?.touched"
+          >
+            Volume é obrigatório
           </div>
         </div>
 
-
         <div class="m-2">
-          <label for="">Tempo:</label>
+          <label for="">Hora:</label>
           <input
             class="default-input"
-            formControlName="tempo"
+            formControlName="hora"
             type="number"
             matInput
           />
+          <div
+            class="mensagem__erro"
+            *ngIf="formulario.get('hora')?.errors?.['required'] && formulario.get('hora')?.touched"
+          >
+            Hora é obrigatório
+          </div>
+        </div>
+
+        <div class="m-2">
+          <label for="">Minuto:</label>
+          <input
+            class="default-input"
+            formControlName="minuto"
+            type="number"
+            matInput
+          />
+          <div
+            class="mensagem__erro"
+            *ngIf="formulario.get('minuto')?.errors?.['required'] && formulario.get('minuto')?.touched"
+          >
+            Minuto é obrigatório
+          </div>
         </div>
 
         <app-button-primary

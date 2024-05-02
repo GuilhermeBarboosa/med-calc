@@ -26,8 +26,7 @@ export class DiluicaoComponent {
   async createTable() {
     this.formulario = this.formBuilder.group({
       prescricao: ['', [Validators.required]],
-      concentracao: ['', [Validators.required]],
-      proporcao: ['', [Validators.required]],
+      diluente: ['', [Validators.required]],
       volume: ['', [Validators.required]],
     });
   }
@@ -35,30 +34,18 @@ export class DiluicaoComponent {
   calcular() {
     if (this.formulario.valid) {
       const prescricao = this.formulario.get('prescricao')?.value;
-      const concentracao = this.formulario.get('concentracao')?.value;
-      const proporcao = this.formulario.get('proporcao')?.value;
+      const diluente = this.formulario.get('diluente')?.value;
       const volume = this.formulario.get('volume')?.value;
 
-      const totalMgFrasco = volume * concentracao;
-      const calculo = (volume * prescricao) / totalMgFrasco;
-      const calculoPor2 = (volume * prescricao) / (volume * (concentracao / 2));
-
-      let proporcaoRefactor = '';
-      if (proporcao === '1') {
-        proporcaoRefactor = '1ml';
-      } else {
-        proporcaoRefactor = '2ml';
-      }
+      const totalCalc = (prescricao * diluente) / volume;
 
       this.dialog.open(DialogDiluicaoComponent, {
         width: '800px',
         data: {
           prescricao: prescricao,
-          concentracao: concentracao,
-          volume: volume,
-          totalMgFrasco: totalMgFrasco,
-          calculo: proporcao === '1' ? calculo.toFixed(2) : calculoPor2.toFixed(2),
-          proporcao: proporcaoRefactor,
+          totalCalc: totalCalc.toFixed(2),
+          diluente: diluente,
+          volume: volume
         },
       });
     } else {
