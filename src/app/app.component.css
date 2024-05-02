@@ -1,0 +1,30 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+mat-sidenav-content {
+  height: 100vh;
+}
+
+mat-sidenav-container {
+  height: 100vh;
+}
+
+
+.toolbar-submenu{
+  height: 100px;
+  font-size: 2rem;
+  margin-top: 55px;
+}
+
+.title{
+  margin-bottom: 500px;
+}
+
+.content{
+  padding: 10px;
+}

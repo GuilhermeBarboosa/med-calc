@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>Deseja realmente excluir?</h1>
+<div mat-dialog-actions class="center">
+  <app-button-secundary class="m-5" [value]="Nao" mat-button (click)="onNoClick()"
+    >Não</app-button-secundary
+  >
+  <app-button-primary
+    class="m-5"
+    [value]="Sim"
+    mat-button
+
+    cdkFocusInitial
+    >Sim</app-button-primary
+  >
+</div>

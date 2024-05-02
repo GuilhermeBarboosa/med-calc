@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* DEFAULT STYLE */
+
+* {
+  font-family: "Open Sans", sans-serif !important;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+}
+
+.primary-bg{
+  background-color: #a4dad2;
+
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #a4dad2;
+  /* border-radius: 5px; */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #666666;
+  /* border-radius: 5px; */
+}
+
+.sidebar,
+.navbar {
+  background-color: #a4dad2;
+}
+
+.bg-default {
+  background-color: #a4dad2;
+}
+
+.title {
+  color: #000000 !important;
+}
+
+.text-color-primary {
+  color: #45ff79;
+}
+
+.verde {
+  color: green;
+}
+
+.cinza {
+  color: gray;
+}
+
+.vermelho {
+  color: red;
+}
+
+.azul {
+  color: blue;
+}
+
+.default-input {
+  background-color: #ffffff;
+  border: 1px solid #e7e7e7 !important;
+  color: #202020;
+  font-size: medium;
+  border-radius: 5px;
+  display: block;
+  margin: 0px 0px 0px 0px;
+}
+
+.default-input:focus {
+  border:  #a4dad2 !important;
+}
+
+
+.mensagem__erro {
+  font-size: 12px;
+  color: red;
+  padding-top: 5px;
+}
+
+.mb-10 {
+  margin-bottom: 4% !important;
+}
+
+@media screen and (max-width: 768px) {
+  .mb-10 {
+    margin-bottom: 15% !important;
+  }
+}
+
+
+.bx-info-circle {
+  color: #000000;
+}
+
+.bx-info-circle:hover {
+  color: #ffff00;
+}
+
+.bx-trash {
+  color: #ff0000;
+}
+
+.bx-trash:hover {
+  color: #a80000;
+}
+
+.bx-check {
+  color: #00ff00;
+}
+
+.bx-check:hover {
+  color: #00a800;
+}
+
+.bxs-folder {
+  color: #0000ff;
+}
+
+
+.bx {
+  font-size: 25px !important;
+  padding: 0px 5px 0px 5px;
+}
+
+
+.blue-dsgov-primario {
+  background-color: #a4dad2;
+}
+
+.blue-dsgov-primario:hover {
+  background-color: #a4dad2;
+}
+
+.blue-dsgov-secundario {
+  background-color: #ffffff;
+}
+
+.blue-dsgov-secundario:hover {
+  background-color: #d9e3f3;
+}
+
+.gray-highlight {
+  background-color: #dbdbdb;
+}
