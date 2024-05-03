@@ -38,7 +38,7 @@ export const routes: Routes = [
     redirectTo: 'inicio',
     pathMatch: 'full',
   },
-  { path: '**', redirectTo: '/not-found' },
+  { path: '**', redirectTo: 'inicio' },
 ];
 
 @NgModule({
