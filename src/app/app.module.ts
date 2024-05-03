@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { APP_BASE_HREF, CommonModule } from '@angular/common';
+import { APP_BASE_HREF, CommonModule, HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
@@ -20,7 +20,7 @@ import { MaterialModule } from './modules/material.module';
     ToastrModule.forRoot(),
   ],
   // providers: [StyleService],
-  providers: [{ provide: APP_BASE_HREF, useValue: '/' }],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}, { provide: APP_BASE_HREF, useValue: '/' }],
   bootstrap: [AppComponent],
 })
 export class AppModule {
